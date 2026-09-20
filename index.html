@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trung tâm Ngoại ngữ Ha Teacher</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Thông báo nổi Toast -->
+    <div id="toast-notification">
+      <i
+        class="fa-solid fa-circle-check"
+        style="color: #34d399; font-size: 20px"
+      ></i>
+      <span id="toast-msg">Nội dung thông báo</span>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+      <div class="nav-container">
+        <div class="logo" onclick="showPage('home')">
+          <div class="logo-icon">
+            <img src="Logo.jpg" alt="Logo Ha Teacher" />
+          </div>
+          <span>Ha Teacher</span>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a
+                href="#"
+                onclick="
+                  showPage('home');
+                  closeAllDropdowns();
+                  return false;
+                "
+                id="nav-home"
+                class="active"
+                ><i class="fa-solid fa-house"></i> Trang chủ</a
+              >
+            </li>
+
+            <!-- Giới thiệu -->
+            <li class="dropdown" id="menu-about">
+              <a href="#" onclick="toggleDropdown(event, 'dropdown-about')"
+                ><i class="fa-solid fa-circle-info"></i> Giới thiệu
+                <i class="fa-solid fa-chevron-down" style="font-size: 10px"></i
+              ></a>
+              <div class="dropdown-content" id="dropdown-about">
+                <a
+                  href="#"
+                  onclick="
+                    showAboutSub('tongquan');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Tổng quan</a
+                >
+                <a
+                  href="#"
+                  onclick="
+                    showAboutSub('tamnhin');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Tầm nhìn và sứ mệnh</a
+                >
+                <a
+                  href="#"
+                  onclick="
+                    showAboutSub('vatchat');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Cơ sở vật chất</a
+                >
+                <!-- Thực hiện công khai -->
+                <div class="sub-dropdown" id="sub-menu-congkhai">
+                  <a
+                    href="#"
+                    onclick="toggleSubDropdown(event, 'sub-dropdown-congkhai')"
+                    >Thực hiện công khai</a
+                  >
+                  <div class="sub-dropdown-content" id="sub-dropdown-congkhai">
+                    <a
+                      href="#"
+                      onclick="
+                        showCongKhai('phaply');
+                        closeAllDropdowns();
+                        return false;
+                      "
+                      >Công khai pháp lý</a
+                    >
+                    <a
+                      href="#"
+                      onclick="
+                        showCongKhai('noidung');
+                        closeAllDropdowns();
+                        return false;
+                      "
+                      >Công khai nội dung & chương trình</a
+                    >
+                    <a
+                      href="#"
+                      onclick="
+                        showCongKhai('giaovien');
+                        closeAllDropdowns();
+                        return false;
+                      "
+                      >Công khai Quản lý - Giáo viên</a
+                    >
+                    <a
+                      href="#"
+                      onclick="
+                        showCongKhai('hocphi');
+                        closeAllDropdowns();
+                        return false;
+                      "
+                      >Công khai học phí</a
+                    >
+                    <a
+                      href="#"
+                      onclick="
+                        showCongKhai('chatluong');
+                        closeAllDropdowns();
+                        return false;
+                      "
+                      >Công khai đảm bảo chất lượng</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Tuyển sinh -->
+            <li>
+              <a
+                href="#"
+                onclick="
+                  showPage('tuyensinh');
+                  closeAllDropdowns();
+                  return false;
+                "
+                id="nav-tuyensinh"
+                ><i class="fa-solid fa-bullhorn"></i> Tuyển sinh</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#"
+                onclick="
+                  showPage('hoatdong');
+                  closeAllDropdowns();
+                  return false;
+                "
+                id="nav-hoatdong"
+                ><i class="fa-solid fa-bolt"></i> Hoạt động</a
+              >
+            </li>
+
+            <!-- Tiếng Anh -->
+            <li class="dropdown" id="menu-courses">
+              <a href="#" onclick="toggleDropdown(event, 'dropdown-courses')"
+                ><i class="fa-solid fa-book-open"></i> Tiếng Anh
+                <i class="fa-solid fa-chevron-down" style="font-size: 10px"></i
+              ></a>
+              <div class="dropdown-content" id="dropdown-courses">
+                <a
+                  href="#"
+                  onclick="
+                    showCourseSub('mamnon');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Tiếng Anh Mầm non</a
+                >
+                <a
+                  href="#"
+                  onclick="
+                    showCourseSub('thieunhi');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Tiếng Anh Tiểu học</a
+                >
+                <a
+                  href="#"
+                  onclick="
+                    showCourseSub('thieunien');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Tiếng Anh THCS - THPT</a
+                >
+                <a
+                  href="#"
+                  onclick="
+                    showCourseSub('nguphap');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Ngữ pháp</a
+                >
+                <a
+                  href="#"
+                  onclick="
+                    showCourseSub('luyenthi');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Luyện thi</a
+                >
+              </div>
+            </li>
+
+            <!-- Tin học -->
+            <li id="menu-informatics">
+              <a
+                href="javascript:void(0);"
+                onclick="
+                  showInformaticsSub();
+                  return false;
+                "
+              >
+                <i class="fa-solid fa-laptop-code"></i> Tin học
+              </a>
+            </li>
+
+            <!-- Thư viện -->
+            <li class="dropdown" id="menu-library">
+              <a href="#" onclick="toggleDropdown(event, 'dropdown-library')"
+                ><i class="fa-solid fa-folder-open"></i> Thư viện
+                <i class="fa-solid fa-chevron-down" style="font-size: 10px"></i
+              ></a>
+              <div class="dropdown-content" id="dropdown-library">
+                <a
+                  href="#"
+                  onclick="
+                    showLibrary('mamnon');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Thư viện mầm non</a
+                >
+                <a
+                  href="#"
+                  onclick="
+                    showLibrary('tieuhoc');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Thư viện tiểu học</a
+                >
+                <a
+                  href="#"
+                  onclick="
+                    showLibrary('nguphap');
+                    closeAllDropdowns();
+                    return false;
+                  "
+                  >Thư viện ngữ pháp</a
+                >
+              </div>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                onclick="
+                  showFeedbackPage();
+                  closeAllDropdowns();
+                  return false;
+                "
+                id="nav-feedback"
+                ><i class="fa-solid fa-comments"></i> Phản hồi</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Nội dung chính -->
+    <div class="main-container" id="content-area">
+      <!-- Load động bằng JavaScript -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Trung Tâm Ngoại Ngữ Ha Teacher</h4>
+          <p>
+            Khơi nguồn đam mê, rèn luyện tư duy phản xạ và chắp cánh ước mơ
+            chinh phục đỉnh cao tri thức thế giới.
+          </p>
+          <p>Luyện kỹ - Hoàn thiện - Nâng cao</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thông Tin Liên Hệ</h4>
+          <p>
+            <i
+              class="fa-solid fa-location-dot"
+              style="color: var(--accent)"
+            ></i>
+            Số nhà 20, đường số 10, Cẩm Phú 1, Gò Nổi, Đà Nẵng
+          </p>
+          <p>
+            <i class="fa-solid fa-phone" style="color: var(--accent)"></i>
+            Hotline: 0785 180 988
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope" style="color: var(--accent)"></i>
+            Email: congtytnhhgiaoduchateacher@gamil.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Thời Gian Làm Việc</h4>
+          <p>Thứ Hai - Chủ Nhật: 08:00 sáng - 21:00 tối</p>
+          <p>Hỗ trợ tư vấn học tập 24/7 suốt tuần.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Trung tâm Ngoại ngữ Ha Teacher. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Kết nối file JavaScript -->
+    <script src="app.js"></script>
+  </body>
+</html>
