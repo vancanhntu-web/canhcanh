@@ -1,0 +1,1101 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuyển Sinh Tiếng Anh Thiếu Niên - Ha Teacher VIP</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --secondary: #0ea5e9;
+        --accent: #f59e0b;
+        --bg-gradient: linear-gradient(
+          135deg,
+          #f0f9ff 0%,
+          #e0f2fe 50%,
+          #fef3c7 100%
+        );
+        --card-bg: rgba(255, 255, 255, 0.96);
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --border-card: 2px solid #cbd5e1;
+        --radius-xl: 28px;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --shadow-lux: 0 20px 50px rgba(37, 99, 235, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      body {
+        background: var(--bg-gradient);
+        color: var(--text-main);
+        line-height: 1.8;
+        padding: 50px 20px;
+        min-height: 100vh;
+      }
+
+      .main-container {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      /* Khung tổng thể Cao cấp */
+      .vip-wrapper {
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        padding: 50px;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lux);
+        border: 3px solid rgba(255, 255, 255, 0.9);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .vip-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(
+          90deg,
+          var(--primary),
+          var(--secondary),
+          var(--accent)
+        );
+      }
+
+      /* Banner */
+      .banner-box {
+        width: 100%;
+        max-height: 460px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 40px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        border: 3px solid #ffffff;
+      }
+
+      .banner-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .banner-box:hover img {
+        transform: scale(1.02);
+      }
+
+      /* Tiêu đề chính */
+      .main-heading {
+        color: var(--primary-dark);
+        font-size: 28px;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+      }
+
+      .main-subheading {
+        text-align: center;
+        font-size: 17px;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 35px;
+      }
+
+      .intro-desc {
+        font-size: 16px;
+        color: var(--text-muted);
+        text-align: justify;
+        margin-bottom: 35px;
+        background: #f8fafc;
+        padding: 20px 24px;
+        border-radius: var(--radius-md);
+        border: 1px solid #cbd5e1;
+      }
+
+      /* KHUNG RIÊNG BIỆT CHO TỪNG MỤC */
+      .section-box {
+        background: #ffffff;
+        border: var(--border-card);
+        border-radius: var(--radius-lg);
+        padding: 30px;
+        margin-bottom: 35px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .section-box:hover {
+        box-shadow: 0 15px 35px rgba(37, 99, 235, 0.08);
+        border-color: var(--primary);
+      }
+
+      .section-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--primary-dark);
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 12px;
+        border-bottom: 2px dashed #cbd5e1;
+        text-transform: uppercase;
+      }
+
+      .section-title i {
+        color: var(--secondary);
+        font-size: 22px;
+      }
+
+      /* Danh sách thông tin */
+      .feature-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+      }
+
+      .feature-item {
+        background: #f8fafc;
+        padding: 16px 18px;
+        border-radius: var(--radius-md);
+        border-left: 5px solid var(--primary);
+        border-top: 1px solid #cbd5e1;
+        border-right: 1px solid #cbd5e1;
+        border-bottom: 1px solid #cbd5e1;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      .feature-item strong {
+        display: block;
+        color: var(--text-main);
+        margin-bottom: 4px;
+        font-size: 15px;
+      }
+
+      /* Phần giáo trình kèm ảnh */
+      .textbook-card {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background: #f8fafc;
+        padding: 24px;
+        border-radius: var(--radius-md);
+        border: 1px solid #cbd5e1;
+        margin-bottom: 20px;
+      }
+
+      @media (min-width: 640px) {
+        .textbook-card {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+
+      .textbook-img-box {
+        width: 160px;
+        height: 220px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border: 3px solid #ffffff;
+        background: #fff;
+      }
+
+      .textbook-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .textbook-info {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+
+      /* Hoạt động trọng tâm */
+      .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 15px;
+      }
+
+      .activity-pill {
+        background: #f8fafc;
+        padding: 14px 16px;
+        border-radius: var(--radius-md);
+        border: 1px solid #cbd5e1;
+        font-weight: 700;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s ease;
+      }
+
+      .activity-pill:hover {
+        background: #f0fdf4;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* Mô hình học tập */
+      .learning-flow {
+        background: #eff6ff;
+        border: 2px solid #93c5fd;
+        padding: 20px;
+        border-radius: var(--radius-md);
+        text-align: center;
+        font-weight: 800;
+        color: var(--primary-dark);
+        font-size: 15px;
+        margin-top: 15px;
+        line-height: 1.6;
+      }
+
+      /* Cam kết & Học phí badge */
+      .commitment-box {
+        background: #fffbeb;
+        border: 2px solid #f59e0b;
+        padding: 20px;
+        border-radius: var(--radius-md);
+        font-weight: 700;
+        color: #92400e;
+        font-size: 15px;
+        text-align: justify;
+        line-height: 1.7;
+      }
+
+      .price-badge {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 18px 24px;
+        border-radius: var(--radius-md);
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* Nút đăng ký chính */
+      .cta-box {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .btn-vip {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        border: none;
+        padding: 18px 50px;
+        font-size: 18px;
+        font-weight: 800;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-vip:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(37, 99, 235, 0.6);
+      }
+
+      /* Modal Đăng Ký */
+      .modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.7);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        backdrop-filter: blur(8px);
+      }
+
+      .modal-box {
+        background: #ffffff;
+        width: 100%;
+        max-width: 620px;
+        padding: 40px;
+        border-radius: var(--radius-xl);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        position: relative;
+        max-height: 92vh;
+        overflow-y: auto;
+        border: 3px solid #cbd5e1;
+        animation: fadeInScale 0.3s ease;
+      }
+
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 22px;
+        right: 25px;
+        font-size: 26px;
+        cursor: pointer;
+        color: var(--text-muted);
+        transition: color 0.2s;
+      }
+
+      .modal-close:hover {
+        color: var(--primary);
+      }
+
+      .modal-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--primary-dark);
+        margin-bottom: 25px;
+        text-transform: uppercase;
+      }
+
+      /* Form Controls */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-main);
+        font-size: 14px;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 14px 18px;
+        border: 2px solid #cbd5e1;
+        border-radius: var(--radius-md);
+        font-size: 15px;
+        outline: none;
+        transition: all 0.3s ease;
+        background: #f8fafc;
+        font-weight: 600;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        background: #ffffff;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+      }
+
+      .form-control[readonly] {
+        background: #f1f5f9;
+        color: var(--text-muted);
+      }
+
+      .checkbox-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 25px;
+        background: #f8fafc;
+        padding: 12px 16px;
+        border-radius: var(--radius-md);
+        border: 1px solid #cbd5e1;
+      }
+
+      .checkbox-box input {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--primary);
+        cursor: pointer;
+      }
+
+      .checkbox-box label {
+        margin-bottom: 0;
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--text-muted);
+        cursor: pointer;
+      }
+
+      /* Toast Notification */
+      #toast-alert {
+        visibility: hidden;
+        min-width: 280px;
+        background-color: #0f172a;
+        color: #fff;
+        text-align: center;
+        border-radius: var(--radius-md);
+        padding: 16px 24px;
+        position: fixed;
+        z-index: 3000;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        font-size: 15px;
+        font-weight: 700;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      #toast-alert.show {
+        visibility: visible;
+        animation: fadeInOut 3s ease forwards;
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, 20px);
+        }
+        15% {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+        85% {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -20px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .vip-wrapper {
+          padding: 20px;
+        }
+        .section-box {
+          padding: 20px;
+        }
+        .main-heading {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="vip-wrapper">
+        <!-- Banner Thiếu Niên -->
+        <div class="banner-box">
+          <img
+            src="thieunien.png"
+            alt="Banner Tuyển Sinh Tiếng Anh Thiếu Niên Ha Teacher"
+            onerror="
+              this.src =
+                'https://placehold.co/960x420/2563eb/ffffff?text=HA+TEACHER+-+TIENG+ANH+THIEU+NIEN'
+            "
+          />
+        </div>
+
+        <!-- Tiêu đề & Lời ngỏ -->
+        <h1 class="main-heading">
+          CHƯƠNG TRÌNH TIẾNG ANH THIẾU NIÊN & LUYỆN THI ĐẠI HỌC
+        </h1>
+        <h1 class="main-heading">(tháng 10/2026)</h1>
+        <p class="main-subheading">
+          XÂY DỰNG NỀN TẢNG CHUYÊN SÂU – CHINH PHỤC KỲ THI – TỰ TIN VƯƠN XA
+        </p>
+
+        <div class="intro-desc">
+          <strong>Ha Teacher</strong> triển khai chương trình Tiếng Anh Thiếu
+          Niên dành cho học sinh Trung học cơ sở và Trung học phổ thông. Khóa
+          học được thiết kế chuẩn hóa giúp học sinh thành thạo ngữ pháp nâng
+          cao, phát triển toàn diện 4 kỹ năng, đồng thời tích hợp định hướng
+          chuyên sâu phục vụ cho việc ôn thi học sinh giỏi, ôn thi tốt nghiệp
+          THPT và xét tuyển đại học.
+        </div>
+
+        <!-- 1. ĐỐI TƯỢNG TUYỂN SINH -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-users"></i> 1. Đối Tượng Tuyển Sinh (THCS &
+            THPT)
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>📌 Học sinh THCS & THPT:</strong> Học sinh muốn nâng cao
+              toàn diện năng lực tiếng Anh học thuật.
+            </div>
+            <div class="feature-item">
+              <strong>📌 Củng cố hệ thống:</strong> Học sinh cần chuẩn hóa và
+              lấp đầy lỗ hổng cấu trúc ngữ pháp, từ vựng nâng cao.
+            </div>
+            <div class="feature-item">
+              <strong>📌 Định hướng thi Đại học:</strong> Học sinh cấp 3 có mục
+              tiêu tích lũy kiến thức trọng tâm để chinh phục điểm cao môn Tiếng
+              Anh trong kỳ thi tốt nghiệp THPT và xét tuyển Đại học.
+            </div>
+            <div class="feature-item">
+              <strong>📌 Phát triển chuyên sâu:</strong> Học sinh muốn rèn luyện
+              kỹ năng đọc hiểu sâu, viết luận và phản xạ tiếng Anh linh hoạt.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. MỤC TIÊU ĐẠT ĐƯỢC SAU KHÓA HỌC -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-bullseye"></i> 2. Mục Tiêu Đạt Được Sau Khóa
+            Học
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>🎯 Nền tảng Ngữ pháp - Từ vựng:</strong> Nắm vững hệ thống
+              ngữ pháp chuyên sâu, mở rộng từ vựng học thuật theo các chủ điểm
+              chuẩn Cambridge và cấu trúc đề thi quốc gia.
+            </div>
+            <div class="feature-item">
+              <strong>📚 Làm chủ Đọc - Viết học thuật:</strong> Phát triển khả
+              năng phân tích đoạn văn dài, nắm bắt thông tin ẩn ý, viết câu
+              chuẩn xác và mạch lạc.
+            </div>
+            <div class="feature-item">
+              <strong>🎓 Định hướng thi Đại học:</strong> Thành thạo các dạng
+              bài tập chuyên sâu xuất hiện trong đề thi tốt nghiệp THPT và Đại
+              học (như ngữ âm, tìm lỗi sai, đọc điền từ, câu đồng nghĩa, cấu
+              trúc nâng cao).
+            </div>
+            <div class="feature-item">
+              <strong>💡 Tư duy giải đề & Phản xạ:</strong> Rèn luyện kỹ năng
+              quản lý thời gian, chiến thuật làm bài thi trắc nghiệm và tự luận
+              đạt điểm tối ưu.
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. GIÁO TRÌNH & TÀI LIỆU HỌC TẬP -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-book"></i> 3. Giáo Trình & Tài Liệu Học Tập
+          </div>
+
+          <!-- Sách: Cambridge Prepare -->
+          <div class="textbook-card">
+            <div class="textbook-img-box">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPc4NiLkwi9s57nzlmRenhwDOcsSJtOsof3o61ZqQEe7RDSTl5BXBh1Ws&s=10"
+                alt="Cambridge Prepare"
+                onerror="
+                  this.src =
+                    'https://placehold.co/160x220/2563eb/ffffff?text=Cambridge+Prepare'
+                "
+              />
+            </div>
+            <div class="textbook-info">
+              <strong style="color: var(--primary-dark); font-size: 18px"
+                >Cambridge Prepare (NXB Cambridge University Press)</strong
+              ><br />
+              🏢 <em>Nhà xuất bản:</em> Cambridge University Press<br />
+              📖 <em>Đặc điểm:</em> Bộ giáo trình uy tín toàn cầu giúp học sinh
+              phát triển toàn diện các kỹ năng ngôn ngữ, kết hợp các chủ đề thực
+              tế hấp dẫn, từ vựng học thuật và định hướng luyện thi các chứng
+              chỉ quốc tế cũng như nền tảng vững chắc cho các bậc học cao hơn.
+            </div>
+          </div>
+
+          <!-- Tài liệu luyện thi Đại học -->
+          <div class="textbook-card" style="margin-top: 15px">
+            <div
+              class="textbook-img-box"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary),
+                  var(--secondary)
+                );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 800;
+                text-align: center;
+                padding: 10px;
+              "
+            >
+              LUYỆN THI ĐẠI HỌC
+            </div>
+            <div class="textbook-info">
+              <strong style="color: var(--primary-dark); font-size: 18px"
+                >Hệ thống chuyên đề & Ngân hàng đề thi Đại học</strong
+              ><br />
+              🏢 <em>Biên soạn:</em> Đội ngũ chuyên môn Ha Teacher<br />
+              📖 <em>Đặc điểm:</em> Tài liệu luyện thi chuyên sâu – bám sát cấu
+              trúc đề thi, hệ thống kiến thức từ cơ bản đến nâng cao, trang bị
+              chiến lược xử lý câu hỏi phân loại, giúp học viên tự tin chinh
+              phục mục tiêu 9–10 điểm.
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. PHƯƠNG PHÁP GIẢNG DẠY -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 4. Phương Pháp Giảng
+            Dạy
+          </div>
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              margin-bottom: 20px;
+            "
+          >
+            <strong>KẾT HỢP LÝ THUYẾT CHUYÊN SÂU VÀ THỰC CHIẾN ĐỀ THI:</strong
+            ><br />
+            Ha Teacher áp dụng phương pháp phân tích bản chất ngôn ngữ, hướng
+            dẫn học sinh tư duy logic thay vì học vẹt, kết hợp luyện tập liên
+            tục qua hệ thống bài tập trực tuyến và tại trung tâm.
+          </p>
+          <div
+            style="
+              font-weight: 700;
+              color: var(--primary-dark);
+              margin-bottom: 12px;
+              font-size: 16px;
+            "
+          >
+            Các hoạt động trọng tâm:
+          </div>
+          <div class="activities-grid">
+            <div class="activity-pill">
+              <i class="fa-solid fa-brain" style="color: var(--primary)"></i>
+              Advanced Grammar – Phân tích ngữ pháp nâng cao.
+            </div>
+            <div class="activity-pill">
+              <i
+                class="fa-solid fa-book-bookmark"
+                style="color: var(--secondary)"
+              ></i>
+              Academic Vocabulary – Mở rộng từ vựng học thuật.
+            </div>
+            <div class="activity-pill">
+              <i
+                class="fa-solid fa-list-check"
+                style="color: var(--accent)"
+              ></i>
+              Exam Strategies – Chiến thuật làm bài thi Đại học.
+            </div>
+            <div class="activity-pill">
+              <i class="fa-solid fa-pen-nib" style="color: var(--primary)"></i>
+              Reading & Writing Drills – Luyện đọc hiểu sâu & viết câu chuẩn.
+            </div>
+            <div class="activity-pill">
+              <i
+                class="fa-solid fa-comments"
+                style="color: var(--secondary)"
+              ></i>
+              Discussion & Presentation – Thảo luận, thuyết trình chủ đề.
+            </div>
+            <div class="activity-pill">
+              <i
+                class="fa-solid fa-laptop-code"
+                style="color: var(--accent)"
+              ></i>
+              Online Practice – Ôn tập chuyên đề trên website Ha Teacher.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. MÔ HÌNH HỌC TẬP KẾT HỢP -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-rotate"></i> 5. Mô Hình Học Tập Kết Hợp
+          </div>
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              text-align: center;
+              margin-bottom: 10px;
+            "
+          >
+            HỌC CHUYÊN ĐỀ ➔ LUYỆN TẬP TẠI TRUNG TÂM ➔ GIẢI ĐỀ THI THỬ ➔ ÔN TẬP
+            TRÊN WEBSITE ➔ HOÀN THIỆN KỸ NĂNG
+          </p>
+          <div class="learning-flow">
+            Mỗi giai đoạn triển khai qua quá trình:<br />
+            LÝ THUYẾT ➔ ỨNG DỤNG ➔ LUYỆN TẬP CHUYÊN SÂU ➔ GIẢI ĐỀ THỰC CHIẾN
+          </div>
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              margin-top: 15px;
+              text-align: justify;
+            "
+          >
+            Giúp học sinh củng cố vững chắc kiến thức nền tảng ở trường, đồng
+            thời tích lũy tư duy giải đề nhạy bén để sẵn sàng bước vào các kỳ
+            thi quan trọng.
+          </p>
+        </div>
+
+        <!-- 6. CAM KẾT CHẤT LƯỢNG -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-handshake-angle"></i> 6. Cam Kết Chất Lượng
+          </div>
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              margin-bottom: 15px;
+              text-align: justify;
+            "
+          >
+            Ha Teacher cam kết cung cấp lộ trình học tập bài bản, đội ngũ giáo
+            viên giàu kinh nghiệm luyện thi, hệ thống tài liệu chuẩn hóa và bám
+            sát thực tế đề thi Đại học.<br />
+            Trung tâm theo dõi sát sao tiến độ tiến bộ của học sinh, tuy nhiên
+            kết quả cao trong các kỳ thi đòi hỏi sự nỗ lực chủ động từ học sinh
+            và sự đồng hành sát sao của phụ huynh.<br />
+            Học sinh cần nghiêm túc tuân thủ nội quy lớp học, hoàn thành đầy đủ
+            các bài tập chuyên đề, bài giải đề thi thử và chuyên mục ôn tập trực
+            tuyến do giáo viên giao.
+          </p>
+          <div class="commitment-box" style="text-align: center">
+            TRUNG TÂM CAM KẾT CHUYÊN MÔN – PHỤ HUYNH ĐỒNG HÀNH – HỌC SINH QUYẾT
+            TÂM CHINH PHỤC
+          </div>
+        </div>
+
+        <!-- 7. THỜI GIAN & LỊCH HỌC LINH HOẠT -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-clock"></i> 7. Thời Gian & Lịch Học Linh Hoạt
+          </div>
+          <div
+            style="
+              background: #f8fafc;
+              padding: 16px 20px;
+              border-radius: var(--radius-md);
+              border: 1px solid #cbd5e1;
+              margin-bottom: 15px;
+              font-weight: 700;
+              color: var(--primary-dark);
+            "
+          >
+            📅 Lịch học dự kiến: Thứ 3 & Thứ 6 hàng tuần | ⏰ Khung giờ: 19:00 –
+            21:00
+          </div>
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              text-align: justify;
+            "
+          >
+            Lịch học được thiết kế linh hoạt, không trùng lặp với thời gian học
+            chính khóa tại trường phổ thông, giúp học sinh cân bằng hiệu quả
+            giữa việc học trên trường và luyện thi chuyên sâu.
+          </p>
+        </div>
+
+        <!-- 8. HỌC PHÍ KHÓA HỌC -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-tag"></i> 8. Học Phí Khóa Học
+          </div>
+          <div class="price-badge" style="margin-bottom: 20px">
+            <i class="fa-solid fa-graduation-cap"></i> HỌC PHÍ: 400.000 VNĐ/ 1
+            Học viên
+          </div>
+          <div
+            style="
+              background: #f8fafc;
+              padding: 20px;
+              border-radius: var(--radius-md);
+              border: 1px solid #cbd5e1;
+              margin-bottom: 15px;
+            "
+          >
+            <strong
+              style="
+                color: var(--primary-dark);
+                display: block;
+                margin-bottom: 10px;
+              "
+              >Học phí bao gồm:</strong
+            >
+            <ul
+              style="
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                font-weight: 600;
+                color: var(--text-muted);
+              "
+            >
+              <li>
+                <strong>Số lượng học sinh:</strong> 1 lớp học tại Trung tâm từ 8
+                - 12 học sinh
+              </li>
+              <li>
+                ✔️ Chương trình học Cambridge Prepare & Chuyên đề luyện thi Đại
+                học
+              </li>
+              <li>✔️ Giáo viên chuyên môn cao trực tiếp giảng dạy</li>
+              <li>✔️ Giáo trình chuẩn Cambridge và kho đề thi thử độc quyền</li>
+              <li>✔️ Hoạt động sửa bài, chữa đề chi tiết tại trung tâm</li>
+              <li>
+                ✔️ Hệ thống bài tập bổ trợ trực tuyến trên website hateacher.com
+              </li>
+              <li>✔️ Báo cáo định kỳ kết quả học tập và năng lực giải đề</li>
+            </ul>
+          </div>
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              font-style: italic;
+            "
+          >
+            Phụ huynh và học sinh được tư vấn chi tiết về lộ trình chuyên sâu,
+            học phí và định hướng chọn khối thi trước khi đăng ký chính thức.
+          </p>
+        </div>
+
+        <!-- Nút Gọi Hành Động -->
+        <div class="cta-box">
+          <button onclick="openModal()" class="btn-vip">
+            Đăng Ký Tư Vấn Lộ Trình Ngay
+            <i
+              class="fa-solid fa-arrow-right-long"
+              style="margin-left: 8px"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Form Đăng Ký -->
+    <div id="registrationModal" class="modal-backdrop">
+      <div class="modal-box">
+        <span onclick="closeModal()" class="modal-close">&times;</span>
+
+        <h3 class="modal-title">Đăng Ký Tư vấn & Nhập học</h3>
+
+        <form id="admissionForm" onsubmit="submitFormToSheet(event)">
+          <div class="form-group">
+            <label>Họ và tên học sinh (*):</label>
+            <input
+              type="text"
+              id="studentName"
+              class="form-control"
+              required
+              placeholder="Nhập họ và tên học sinh..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Họ và tên Phụ huynh / Học sinh liên hệ (*):</label>
+            <input
+              type="text"
+              id="parentName"
+              class="form-control"
+              required
+              placeholder="Nhập họ tên người liên hệ..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Lớp đang học hiện tại:</label>
+            <input
+              type="text"
+              id="currentClass"
+              class="form-control"
+              placeholder="Ví dụ: Lớp 6, Lớp 7, Lớp 8, Lớp 9, Lớp 11, Lớp 12..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Địa chỉ:</label>
+            <input
+              type="text"
+              id="address"
+              class="form-control"
+              placeholder="Nhập địa chỉ nhà của bạn..."
+            />
+          </div>
+
+          <!-- Trường Điện thoại liên hệ nằm ngay bên dưới ô Địa chỉ -->
+          <div class="form-group">
+            <label>Điện thoại liên hệ (*):</label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              class="form-control"
+              required
+              placeholder="Nhập số điện thoại nhận tư vấn..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Chương trình đăng ký:</label>
+            <input
+              type="text"
+              id="course"
+              class="form-control"
+              value="Chương Trình Tiếng Anh Thiếu Niên & Luyện Thi Đại Học (THCS & THPT)"
+              readonly
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Ghi chú / Nguyện vọng thi trường chuyên, Đại học:</label>
+            <textarea
+              id="note"
+              class="form-control"
+              rows="3"
+              placeholder="Nguyện vọng ôn ngữ pháp; thi trường chuyên; Đại học.."
+            ></textarea>
+          </div>
+
+          <div class="checkbox-box">
+            <input type="checkbox" id="agreeTerm" required />
+            <label for="agreeTerm"
+              >Tôi đồng ý cung cấp thông tin để Trung tâm liên hệ tư vấn lộ
+              trình học tập tối ưu.</label
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="btn-vip"
+            style="
+              width: 100%;
+              padding: 16px;
+              font-size: 16px;
+              border-radius: var(--radius-md);
+            "
+          >
+            Gửi Thông Tin Đăng Ký
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast-alert">Thông báo hiển thị ở đây</div>
+
+    <script>
+      // Mở/Đóng Modal
+      function openModal() {
+        document.getElementById("registrationModal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("registrationModal").style.display = "none";
+      }
+
+      // Hiển thị thông báo Toast
+      function showToast(msg) {
+        const toast = document.getElementById("toast-alert");
+        toast.textContent = msg;
+        toast.className = "show";
+        setTimeout(() => {
+          toast.className = toast.className.replace("show", "");
+        }, 3000);
+      }
+
+      // Gửi dữ liệu form về Google Sheet
+      function submitFormToSheet(event) {
+        event.preventDefault();
+
+        const formData = {
+          studentName: document.getElementById("studentName").value,
+          parentName: document.getElementById("parentName").value,
+          currentClass: document.getElementById("currentClass").value,
+          address: document.getElementById("address").value,
+          phoneNumber: document.getElementById("phoneNumber").value,
+          course: document.getElementById("course").value,
+          note: document.getElementById("note").value,
+        };
+
+        // 👉 Dán URL Web App Google Apps Script của bạn vào đây:
+        const scriptURL = "THAY_THE_LINK_WEB_APP_GOOGLE_SCRIPT_CUA_BAN_VAO_DAY";
+
+        showToast("⏳ Đang gửi thông tin...");
+
+        if (scriptURL.includes("THAY_THE_LINK")) {
+          setTimeout(() => {
+            showToast("🎉 Đăng ký thành công! Trung tâm sẽ liên hệ sớm nhất.");
+            document.getElementById("admissionForm").reset();
+            closeModal();
+          }, 1200);
+          return;
+        }
+
+        fetch(scriptURL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        })
+          .then(() => {
+            showToast("🎉 Đăng ký thành công! Dữ liệu đã được lưu trữ.");
+            document.getElementById("admissionForm").reset();
+            closeModal();
+          })
+          .catch((error) => {
+            console.error("Lỗi:", error);
+            showToast("❌ Gửi thông tin thất bại, vui lòng thử lại.");
+          });
+      }
+
+      // Đóng modal khi bấm ra ngoài nền tối
+      window.onclick = function (event) {
+        const modal = document.getElementById("registrationModal");
+        if (event.target == modal) {
+          closeModal();
+        }
+      };
+    </script>
+  </body>
+</html>

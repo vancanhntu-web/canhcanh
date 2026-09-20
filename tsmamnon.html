@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuyển Sinh Tiếng Anh Mầm Non</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #6366f1;
+        --primary-dark: #4f46e5;
+        --secondary: #060af0;
+        --accent: #f59e0b;
+        --bg-gradient: linear-gradient(
+          135deg,
+          #f0fdf4 0%,
+          #e0e7ff 50%,
+          #fdf2f8 100%
+        );
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --border-card: 2px solid #e2e8f0;
+        --radius-xl: 28px;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --shadow-lux: 0 20px 50px rgba(99, 102, 241, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      body {
+        background: var(--bg-gradient);
+        color: var(--text-main);
+        line-height: 1.8;
+        padding: 50px 20px;
+        min-height: 100vh;
+      }
+
+      .main-container {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      /* Khung tổng thể Cao cấp */
+      .vip-wrapper {
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        padding: 50px;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lux);
+        border: 3px solid rgba(255, 255, 255, 0.9);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .vip-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(
+          90deg,
+          var(--primary),
+          var(--secondary),
+          var(--accent)
+        );
+      }
+
+      /* Banner */
+      .banner-box {
+        width: 100%;
+        max-height: 460px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 40px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        border: 3px solid #ffffff;
+      }
+
+      .banner-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .banner-box:hover img {
+        transform: scale(1.02);
+      }
+
+      /* Tiêu đề chính */
+      .main-heading {
+        color: var(--secondary);
+        font-size: 28px;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+      }
+
+      .main-subheading {
+        text-align: center;
+        font-size: 17px;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 35px;
+      }
+
+      .intro-desc {
+        font-size: 16px;
+        color: var(--text-muted);
+        text-align: justify;
+        margin-bottom: 35px;
+        background: #f8fafc;
+        padding: 20px 24px;
+        border-radius: var(--radius-md);
+        border: 1px solid #e2e8f0;
+      }
+
+      /* KHUNG RIÊNG BIỆT CHO TỪNG MỤC */
+      .section-box {
+        background: #ffffff;
+        border: var(--border-card);
+        border-radius: var(--radius-lg);
+        padding: 30px;
+        margin-bottom: 35px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .section-box:hover {
+        box-shadow: 0 15px 35px rgba(99, 102, 241, 0.08);
+        border-color: var(--primary);
+      }
+
+      .section-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--primary-dark);
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 12px;
+        border-bottom: 2px dashed #e2e8f0;
+        text-transform: uppercase;
+      }
+
+      .section-title i {
+        color: var(--secondary);
+        font-size: 22px;
+      }
+
+      /* Grid 10 chủ đề */
+      .topics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 15px;
+      }
+
+      .topic-pill {
+        background: #f8fafc;
+        padding: 15px 18px;
+        border-radius: var(--radius-md);
+        border: 1px solid #cbd5e1;
+        font-weight: 700;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s ease;
+      }
+
+      .topic-pill:hover {
+        background: #eef2ff;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        color: var(--primary-dark);
+      }
+
+      .topic-pill i {
+        color: var(--secondary);
+      }
+
+      /* Danh sách mục tiêu & phương pháp */
+      .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .feature-item {
+        background: #f8fafc;
+        padding: 14px 18px;
+        border-radius: var(--radius-md);
+        border-left: 5px solid var(--primary);
+        border-top: 1px solid #e2e8f0;
+        border-right: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        font-weight: 600;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .feature-item i {
+        color: var(--accent);
+      }
+
+      /* Phần giáo trình kèm ảnh */
+      .textbook-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        background: #f8fafc;
+        padding: 24px;
+        border-radius: var(--radius-md);
+        border: 1px solid #cbd5e1;
+      }
+
+      @media (min-width: 640px) {
+        .textbook-wrapper {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+
+      .textbook-img-box {
+        width: 180px;
+        height: 240px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border: 3px solid #ffffff;
+        background: #fff;
+      }
+
+      .textbook-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .textbook-info {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+
+      /* Học phí badge nổi bật */
+      .price-badge {
+        background: linear-gradient(135deg, #ec4899, #8b5cf6);
+        color: white;
+        padding: 18px 24px;
+        border-radius: var(--radius-md);
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(236, 72, 153, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* Nút đăng ký chính */
+      .cta-box {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .btn-vip {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        border: none;
+        padding: 18px 50px;
+        font-size: 18px;
+        font-weight: 800;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-vip:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
+      }
+
+      /* Modal Đăng Ký */
+      .modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.7);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        backdrop-filter: blur(8px);
+      }
+
+      .modal-box {
+        background: #ffffff;
+        width: 100%;
+        max-width: 620px;
+        padding: 40px;
+        border-radius: var(--radius-xl);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        position: relative;
+        max-height: 92vh;
+        overflow-y: auto;
+        border: 3px solid #e2e8f0;
+        animation: fadeInScale 0.3s ease;
+      }
+
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 22px;
+        right: 25px;
+        font-size: 26px;
+        cursor: pointer;
+        color: var(--text-muted);
+        transition: color 0.2s;
+      }
+
+      .modal-close:hover {
+        color: var(--secondary);
+      }
+
+      .modal-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--primary-dark);
+        margin-bottom: 25px;
+        text-transform: uppercase;
+      }
+
+      /* Form Controls */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-main);
+        font-size: 14px;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 14px 18px;
+        border: 2px solid #cbd5e1;
+        border-radius: var(--radius-md);
+        font-size: 15px;
+        outline: none;
+        transition: all 0.3s ease;
+        background: #f8fafc;
+        font-weight: 600;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        background: #ffffff;
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+      }
+
+      .form-control[readonly] {
+        background: #f1f5f9;
+        color: var(--text-muted);
+      }
+
+      .checkbox-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 25px;
+        background: #f8fafc;
+        padding: 12px 16px;
+        border-radius: var(--radius-md);
+        border: 1px solid #cbd5e1;
+      }
+
+      .checkbox-box input {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--primary);
+        cursor: pointer;
+      }
+
+      .checkbox-box label {
+        margin-bottom: 0;
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--text-muted);
+        cursor: pointer;
+      }
+
+      /* Toast Notification */
+      #toast-alert {
+        visibility: hidden;
+        min-width: 280px;
+        background-color: #0f172a;
+        color: #fff;
+        text-align: center;
+        border-radius: var(--radius-md);
+        padding: 16px 24px;
+        position: fixed;
+        z-index: 3000;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        font-size: 15px;
+        font-weight: 700;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      #toast-alert.show {
+        visibility: visible;
+        animation: fadeInOut 3s ease forwards;
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, 20px);
+        }
+        15% {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+        85% {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -20px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .vip-wrapper {
+          padding: 20px;
+        }
+        .section-box {
+          padding: 20px;
+        }
+        .main-heading {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="vip-wrapper">
+        <!-- Banner Mầm Non -->
+        <div class="banner-box">
+          <img
+            src="mamnon.png"
+            alt="Banner Tuyển Sinh Tiếng Anh Mầm Non Ha Teacher"
+            onerror="
+              this.src =
+                'https://placehold.co/960x420/6366f1/ffffff?text=HA+TEACHER+-+TIENG+ANH+MAM+NON'
+            "
+          />
+        </div>
+
+        <!-- Tiêu đề & Lời ngỏ -->
+        <h1 class="main-heading">
+          HA TEACHER – THÔNG BÁO TUYỂN SINH TIẾNG ANH MẦM NON
+        </h1>
+        <h1 class="main-heading">THÁNG 10/2026</h1>
+        <p class="main-subheading">
+          KHỞI ĐẦU VỮNG CHẮC – NUÔI DƯỠNG TỰ TIN – MỞ CÁNH CỬA TƯƠNG LAI
+        </p>
+
+        <div class="intro-desc">
+          <strong>Ha Teacher</strong> trân trọng thông báo tuyển sinh các lớp
+          <strong>Tiếng Anh Mầm Non (Dành cho bé từ 4 – 6 tuổi)</strong>.
+          <p>
+            Chương trình được thiết kế đặc quyền theo chuẩn phương pháp tương
+            tác tự nhiên, giúp trẻ tiếp thu ngôn ngữ thứ hai một cách hào hứng
+            và phát triển phản xạ toàn diện.
+          </p>
+        </div>
+
+        <!-- 1. MỤC TIÊU ĐẠT ĐƯỢC SAU KHÓA HỌC -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-bullseye"></i> 1. Mục Tiêu
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <i class="fa-solid fa-star"></i> Xây dựng nền tảng và phản xạ ngữ
+              âm tự nhiên như trẻ bản xứ.
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-star"></i> Nắm vững hệ thống từ vựng phong
+              phú qua 10 chủ đề thực tế sinh động.
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-star"></i> Mạnh dạn giao tiếp các câu
+              hỏi/đáp ngắn và hát thành thạo các bài hát tiếng Anh.
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-star"></i> Rèn luyện sự tập trung, tính kỷ
+              luật và tinh thần hợp tác nhóm hiệu quả.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. GIÁO TRÌNH (KÈM HÌNH ẢNH SÁCH) -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-book"></i> 2. Giáo Trình
+          </div>
+          <div class="textbook-wrapper">
+            <div class="textbook-img-box">
+              <!-- Bạn có thể đổi tên file ảnh sách bên dưới tùy ý (ví dụ: amanda1.png) -->
+              <img
+                src="amanda1.png"
+                alt="Sách Amanda and Friends"
+                onerror="
+                  this.src =
+                    'https://cdn.hstatic.net/products/200001055952/upload_bf34d29836684b19b429d38417b5afda_master.jpg'
+                "
+              />
+            </div>
+            <div class="textbook-info">
+              📖 Học viên được tiếp cận bộ giáo trình chuẩn quốc tế: <br />
+              <strong style="color: var(--primary-dark); font-size: 19px"
+                >Amanda and Friends</strong
+              ><br />
+              🏢 Phát hành bởi:
+              <span style="color: var(--secondary)">NXB Đại Học Huế</span> và
+              <span style="color: var(--secondary)">NXB Richmond</span>.<br />
+              <span
+                style="
+                  font-size: 14px;
+                  color: var(--text-muted);
+                  display: block;
+                  margin-top: 6px;
+                "
+                >Giáo trình thiết kế bắt mắt, hình ảnh minh họa sinh động giúp
+                kích thích tư duy và khả năng ghi nhớ tối ưu cho lứa tuổi mầm
+                non.</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. CHỦ ĐỀ TIẾNG ANH GẦN GŨI VỚI BÉ -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-book-open-reader"></i> 3. Chủ Đề Tiếng Anh
+          </div>
+          <div class="topics-grid">
+            <div class="topic-pill">
+              <i class="fa-solid fa-hand-wave"></i> Hello & Me – Chào hỏi & Bản
+              thân
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-people-roof"></i> My Family – Gia đình thân
+              yêu
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-palette"></i> Colors & Shapes – Màu sắc &
+              Hình dạng
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-dice"></i> Numbers & Toys – Số đếm & Đồ chơi
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-paw"></i> Animals – Thế giới động vật ngộ
+              nghĩnh
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-apple-whole"></i> Food & Drinks – Đồ ăn &
+              Thức uống
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-school"></i> My School – Trường học vui vẻ
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-shirt"></i> My Body & Clothes – Cơ thể &
+              Trang phục
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-sun"></i> Weather & Nature – Thời tiết &
+              Thiên nhiên
+            </div>
+            <div class="topic-pill">
+              <i class="fa-solid fa-gift"></i> Festivals & Fun – Lễ hội & Vui
+              chơi
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. PHƯƠNG PHÁP GIẢNG DẠY -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 4. Phương Pháp Giảng
+            Dạy
+          </div>
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              margin-bottom: 15px;
+            "
+          >
+            Ứng dụng mô hình tương tác đa giác quan
+            <strong>Play-based Learning (Học qua trò chơi)</strong> kết hợp
+            Flashcard sinh động, kể chuyện tương tác (Storytelling), âm nhạc và
+            vận động thể chất giúp trẻ tiếp thu kiến thức vô thức, không áp lực.
+          </p>
+          <div
+            style="
+              background: linear-gradient(135deg, #fffbeb, #fef3c7);
+              border: 2px solid #f59e0b;
+              padding: 18px;
+              border-radius: var(--radius-md);
+              text-align: center;
+              font-weight: 800;
+              color: #92400e;
+            "
+          >
+            CAM KẾT: Giao tiếp tự tin – Không học thuộc lòng máy móc – Bé yêu
+            thích tiếng Anh mỗi ngày!
+          </div>
+        </div>
+
+        <!-- 5. THỜI GIAN & LỊCH HỌC LINH HOẠT -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-clock"></i> 5. Thời Gian & Lịch Học Linh Hoạt
+          </div>
+          <p style="color: var(--text-muted); font-weight: 600">
+            📅 Các lớp học được sắp xếp linh hoạt vào các buổi tối trong tuần và
+            cuối tuần (Thứ 7 & Chủ Nhật). <br />
+            Phụ huynh dễ dàng lựa chọn khung giờ phù hợp nhất với thời gian biểu
+            của bé.
+          </p>
+        </div>
+
+        <!-- 6. HỌC PHÍ -->
+        <div class="section-box">
+          <div class="section-title">
+            <i class="fa-solid fa-tag"></i> 6. Học Phí Khóa Học
+          </div>
+          <div class="price-badge">
+            <i class="fa-solid fa-graduation-cap"></i> Học phí: 400.000 VNĐ / 1
+            học viên/8 buổi
+          </div>
+          <div
+            style="
+              background: #f8fafc;
+              padding: 20px;
+              border-radius: var(--radius-md);
+              border: 1px solid #cbd5e1;
+              margin-bottom: 15px;
+            "
+          >
+            <strong
+              style="
+                color: var(--primary-dark);
+                display: block;
+                margin-bottom: 10px;
+              "
+              >Học phí bao gồm:</strong
+            >
+            <ul
+              style="
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                font-weight: 600;
+                color: var(--text-muted);
+              "
+            >
+              <li>
+                <strong>Số lượng học sinh:</strong> 1 lớp học tại Trung tâm từ 8
+                - 12 học sinh
+              </li>
+              <li>✔️ Chương trình học theo cấp độ</li>
+              <li>✔️ Giáo viên giảng dạy và hướng dẫn</li>
+              <li>✔️ Giáo trình và tài liệu học tập</li>
+              <li>✔️ Bài tập và hoạt động thực hành tại trung tâm</li>
+              <li>✔️ Bài tập luyện tập trên website https://hateacher.com</li>
+              <li>✔️ Theo dõi quá trình học tập của học sinh</li>
+            </ul>
+          </div>
+          <p
+            style="
+              color: var(--text-muted);
+              font-weight: 600;
+              font-style: italic;
+            "
+          >
+            Phụ huynh được tư vấn đầy đủ về học phí, thời lượng khóa học, nội
+            dung đào tạo và các khoản phí liên quan trước khi đăng ký.
+          </p>
+        </div>
+        <!-- Nút Gọi Hành Động -->
+        <div class="cta-box">
+          <button onclick="openModal()" class="btn-vip">
+            Đăng Ký Tư Vấn Ngay
+            <i
+              class="fa-solid fa-arrow-right-long"
+              style="margin-left: 8px"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Form Đăng Ký -->
+    <div id="registrationModal" class="modal-backdrop">
+      <div class="modal-box">
+        <span onclick="closeModal()" class="modal-close">&times;</span>
+
+        <h3 class="modal-title">Đăng Ký Tư vấn & Nhập Học</h3>
+
+        <form id="admissionForm" onsubmit="submitFormToSheet(event)">
+          <div class="form-group">
+            <label>Họ và tên học sinh (*):</label>
+            <input
+              type="text"
+              id="studentName"
+              class="form-control"
+              required
+              placeholder="Nhập họ và tên bé..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Họ và tên Ba/Mẹ (*):</label>
+            <input
+              type="text"
+              id="parentName"
+              class="form-control"
+              required
+              placeholder="Nhập họ tên phụ huynh..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Lớp đang học hiện tại:</label>
+            <input
+              type="text"
+              id="currentClass"
+              class="form-control"
+              placeholder="Ví dụ: Lớp Mầm, Chồi, Lá..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Địa chỉ:</label>
+            <input
+              type="text"
+              id="address"
+              class="form-control"
+              placeholder="Nhập địa chỉ nhà của bạn..."
+            />
+          </div>
+
+          <!-- Điện thoại liên hệ nằm ngay dưới ô địa chỉ -->
+          <div class="form-group">
+            <label>Điện thoại liên hệ (*):</label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              class="form-control"
+              required
+              placeholder="Nhập số điện thoại nhận tư vấn..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Khóa học đăng ký:</label>
+            <input
+              type="text"
+              id="course"
+              class="form-control"
+              value="Tiếng Anh Mầm Non (4-6 tuổi) - Amanda and Friends"
+              readonly
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Ghi chú / Yêu cầu thêm:</label>
+            <textarea
+              id="note"
+              class="form-control"
+              rows="3"
+              placeholder="Khung giờ học mong muốn hoặc lưu ý đặc biệt..."
+            ></textarea>
+          </div>
+
+          <div class="checkbox-box">
+            <input type="checkbox" id="agreeTerm" required />
+            <label for="agreeTerm"
+              >Tôi đồng ý cung cấp thông tin để Trung tâm liên hệ tư vấn lộ
+              trình học tập tốt nhất cho bé.</label
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="btn-vip"
+            style="
+              width: 100%;
+              padding: 16px;
+              font-size: 16px;
+              border-radius: var(--radius-md);
+            "
+          >
+            Gửi Thông Tin Đăng Ký
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast-alert">Thông báo hiển thị ở đây</div>
+
+    <script>
+      // Mở/Đóng Modal
+      function openModal() {
+        document.getElementById("registrationModal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("registrationModal").style.display = "none";
+      }
+
+      // Hiển thị thông báo Toast
+      function showToast(msg) {
+        const toast = document.getElementById("toast-alert");
+        toast.textContent = msg;
+        toast.className = "show";
+        setTimeout(() => {
+          toast.className = toast.className.replace("show", "");
+        }, 3000);
+      }
+
+      // Gửi dữ liệu form về Google Sheet
+      function submitFormToSheet(event) {
+        event.preventDefault();
+
+        const formData = {
+          studentName: document.getElementById("studentName").value,
+          parentName: document.getElementById("parentName").value,
+          currentClass: document.getElementById("currentClass").value,
+          address: document.getElementById("address").value,
+          phoneNumber: document.getElementById("phoneNumber").value,
+          course: document.getElementById("course").value,
+          note: document.getElementById("note").value,
+        };
+
+        // 👉 Dán URL Web App Google Apps Script của bạn vào đây:
+        const scriptURL = "THAY_THE_LINK_WEB_APP_GOOGLE_SCRIPT_CUA_BAN_VAO_DAY";
+
+        showToast("⏳ Đang gửi thông tin...");
+
+        if (scriptURL.includes("THAY_THE_LINK")) {
+          setTimeout(() => {
+            showToast("🎉 Đăng ký thành công! Trung tâm sẽ gọi lại sớm nhất.");
+            document.getElementById("admissionForm").reset();
+            closeModal();
+          }, 1200);
+          return;
+        }
+
+        fetch(scriptURL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        })
+          .then(() => {
+            showToast("🎉 Đăng ký thành công! Dữ liệu đã được lưu trữ.");
+            document.getElementById("admissionForm").reset();
+            closeModal();
+          })
+          .catch((error) => {
+            console.error("Lỗi:", error);
+            showToast("❌ Gửi thông tin thất bại, vui lòng thử lại.");
+          });
+      }
+
+      // Đóng modal khi bấm ra ngoài nền tối
+      window.onclick = function (event) {
+        const modal = document.getElementById("registrationModal");
+        if (event.target == modal) {
+          closeModal();
+        }
+      };
+    </script>
+  </body>
+</html>
