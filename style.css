@@ -534,3 +534,183 @@ footer {
     display: none;
   }
 }
+/* ================================================================= */
+/* BỔ SUNG CSS RESPONSIVE TỰ ĐỘNG CHO MỌI THIẾT BỊ (MOBILE, TABLET, PC) */
+/* ================================================================= */
+
+/* Đảm bảo hình ảnh và nội dung không bị tràn màn hình */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Biến thể cấu trúc responsive cho Main Container */
+.main-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  flex: 1;
+}
+
+/* 1. RESPONSIVE CHO MÁY TÍNH BẢNG (TABLET) & MÀN HÌNH VỪA (<= 1024px) */
+@media screen and (max-width: 1024px) {
+  .nav-container {
+    padding: 15px 20px;
+  }
+
+  /* Hero section chuyển về dạng cột trên tablet/mobile */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Grid danh sách khóa học hoặc hoạt động */
+  .activities-grid,
+  .grid-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+}
+
+/* 2. RESPONSIVE CHO ĐIỆN THOẠI DI ĐỘNG (MOBILE) (<= 768px) */
+@media screen and (max-width: 768px) {
+  /* Header và Logo nhỏ gọn hơn */
+  .nav-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 12px 15px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .logo-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  /* Thanh menu điều hướng chuyển sang cuộn ngang hoặc dọc gọn gàng */
+  nav ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  nav ul li a {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Canh chỉnh lại Dropdown trên mobile để không bị tràn lệch khung */
+  .dropdown-content,
+  .sub-dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.03);
+    margin-top: 5px;
+    padding: 5px;
+  }
+
+  .dropdown-content.show,
+  .sub-dropdown-content.show {
+    display: block;
+  }
+
+  /* Kích thước chữ tiêu đề và khoảng cách card */
+  .card {
+    padding: 20px 15px !important;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 26px !important;
+  }
+
+  h2.section-title {
+    font-size: 20px !important;
+  }
+
+  p,
+  span {
+    font-size: 15px !important;
+  }
+
+  /* Bảng học phí tự động cuộn ngang tránh vỡ giao diện */
+  div[style*="overflow-x: auto"] {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  /* Trang phản hồi và form chi tiết grid 2 cột -> 1 cột trên mobile */
+  div[style*="grid-template-columns: 200px 1fr"] {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  div[style*="grid-template-columns: 200px 1fr"] img {
+    margin: 0 auto;
+    max-width: 240px;
+  }
+
+  /* Các phần tử chia đôi cột (Tầm nhìn, sứ mệnh, cơ sở vật chất) */
+  div[style*="grid-template-columns: 1fr 1.2fr"],
+  div[style*="grid-template-columns: 1.2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* 3. TỐI ƯU CHO MÀN HÌNH RẤT NHỎ (<= 480px) */
+@media screen and (max-width: 480px) {
+  nav ul {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+  }
+
+  nav ul::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  nav ul li {
+    flex-shrink: 0;
+  }
+
+  .btn-primary,
+  .back-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
